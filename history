@@ -1,0 +1,1000 @@
+ 1001  getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_strongILS/model_tree_trimmed -e /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_strongILS/Rep1_result_temp
+ 1002  getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_strongILS/model_tree_trimmed -e /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_strongILS/Rep1_result
+ 1003  clear
+ 1004  getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_strongILS/model_tree_trimmed -e Rep1_result
+ 1005  clear
+ 1006  getFpFn.py -t model_tree_trimmed -e Rep1_result
+ 1007  getFpFn.py -t model_tree_trimmed -e Rep1_result_stripped 
+ 1008  perl /home/farah/Project/strip_edge_support.pl -i Rep1_result_stripped -o temp
+ 1009  getFpFn.py -t model_tree_trimmed -e temp
+ 1010  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i Rep$((i))_result_stripped -o Rep$((i))_stripped_edge_support;done
+ 1011  mkdir stripped_edge_support
+ 1012  mv Rep$((i))_stripped_edge_support stripped_edge_support/
+ 1013  mv Rep*_stripped_edge_support stripped_edge_support/
+ 1014  for i in {1..20};do getFpFn.py -t model_tree_trimmed Rep$((i))_stripped_edge_support>>Rep$((i))_FN;done
+ 1015  rm Rep*_FN
+ 1016  for i in {1..20};do getFpFn.py -t model_tree_trimmed -e Rep$((i))_stripped_edge_support>>Rep$((i))_FN;done
+ 1017  mv 8_FN FN\ rates/
+ 1018  mv *_FN FN\ rates/
+ 1019  cat *>>estimated_genetrees_strongILS_Phylonet_FN
+ 1020  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1021  mkdir stripped_edge_support
+ 1022  mv *_stripped_edge_support
+ 1023  mv *_stripped_edge_support stripped_edge_support/
+ 1024  pwd
+ 1025  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1026  rm *_FN
+ 1027  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1028  rm *_FN
+ 1029  clear
+ 1030  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1031  mv *_FN FN\ rates/ 
+ 1032  cat *>>estimated_genetrees_strongILS__Astral_FN
+ 1033  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1034  mv *_stripped_edge_support stripped_edge_support/
+ 1035  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1036  mkdir FN rates
+ 1037  mv *_FN FN
+ 1038  cat *>>estimated_genetrees_weakILS_Astral_FN
+ 1039  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i Rep$((i))_result_stripped -o Rep$((i))_stripped_edge_support;done
+ 1040  mv *_support stripped_edge_support/
+ 1041  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -e Rep$((i))_stripped_edge_support>>Rep$((i))_FN;done
+ 1042  mkdir FN_rates
+ 1043  mv *_FN FN_rates/
+ 1044  cat *>>estimated_genetrees_weakILS_Phylonet_FN
+ 1045  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1046  mkdir stripped_edge_support
+ 1047  mv *_support stripped_edge_support/
+ 1048  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1049  mkdir FN_rates
+ 1050  mv *_FN FN_rates/
+ 1051  cat *>>simTree_11taxa_100genes_noHGT_strongILS_Astral_FN
+ 1052  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i simtrees_$((i))_result_stripped -o simtrees$((i))_stripped_edge_support;done
+ 1053  mkdir stripped_edge_support
+ 1054  mv *_support stripped_edge_support/
+ 1055  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -e simtrees_$((i))_stripped_edge_support>>simtrees$((i))_FN;done
+ 1056  rm *_FN
+ 1057  clear
+ 1058  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -e simtrees$((i))_stripped_edge_support>>simtrees$((i))_FN;done
+ 1059  mkdir stripped_edge_support
+ 1060  mv *_support stripped_edge_support/
+ 1061  cat *>>simTree_11taxa_100genes_noHGT_strongILS_Phylonet_FN
+ 1062  mkdir stripped_edge_support
+ 1063  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1064  mv *_support stripped_edge_support/
+ 1065  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1066  mkdir FN_rates
+ 1067  mv *_FN FN_rates/
+ 1068  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/model_tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1069  mkdir FN_rates
+ 1070  mv *_FN FN_rates/
+ 1071  cat *>>simTree_11taxa_100genes_noHGT_strongILS_Astral_FN
+ 1072  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/model_tree -e simtrees$((i))_stripped_edge_support>>simtrees$((i))_FN;done
+ 1073  mkdir FN_rates
+ 1074  mv *_FN FN_rates/
+ 1075  cat *>>simTree_11taxa_100genes_noHGT_strongILS_Phylonet_FN
+ 1076  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/model_tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1077  mkdir FN_rates
+ 1078  mv *_FN FN_rates/
+ 1079  cat *>>simTree_11taxa_100genes_noHGT_weakILS_Astral_FN
+ 1080  mkdir stripped_edge_support
+ 1081  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i simtrees_$((i))_result_stripped -o simtrees$((i))_stripped_edge_support;done
+ 1082  mv *_support stripped_edge_support/
+ 1083  for i in {1..20};do getFpFn.py -t /home/farah/Project/11-taxon_Bioinformatics/model_tree -e simtrees$((i))_stripped_edge_support>>simtrees$((i))_FN;done
+ 1084  mkdir FN_rates
+ 1085  mv *_FN FN_rates/
+ 1086  cat *>>simTree_11taxa_100genes_noHGT_weakILS_Phylonet_FN
+ 1087  more simTree_11taxa_100genes_noHGT_weakILS_Phylonet_FN 
+ 1088  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1089  mkdir stripped_edge_support
+ 1090  mv *_support stripped_edge_support/
+ 1091  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i R$((i))_res -o R$((i))_stripped_edge_support;done
+ 1092  mkdir stripped_edge_support
+ 1093  mv *_support stripped_edge_support/
+ 1094  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1095  mkdir stripped_edge_support
+ 1096  mv *_support stripped_edge_support/
+ 1097  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i R$((i))_res -o R$((i))_stripped_edge_support;done
+ 1098  mkdir stripped_edge_support
+ 1099  mv *_support stripped_edge_support/
+ 1100  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1101  mkdir stripped_edge_support
+ 1102  mv *_support stripped_edge_support/
+ 1103  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i R$((i))_res -o R$((i))_stripped_edge_support;done
+ 1104  mkdir stripped_edge_support
+ 1105  mv *_support stripped_edge_support/
+ 1106  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1107  mkdir stripped_edge_support
+ 1108  mv *_support stripped_edge_support/
+ 1109  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i R$((i))_res -o R$((i))_stripped_edge_support;done
+ 1110  mkdir stripped_edge_support
+ 1111  mv *_support stripped_edge_support/
+ 1112  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1113  mkdir stripped_edge_support
+ 1114  mv *_support stripped_edge_support/
+ 1115  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i R$((i))_res -o R$((i))_stripped_edge_support;done
+ 1116  mkdir stripped_edge_support
+ 1117  mv *_support stripped_edge_support/
+ 1118  mkdir stripped_edge_supportclear
+ 1119  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1120  mkdir stripped_edge_supportclear
+ 1121  mv *_support stripped_edge_support/
+ 1122  mkdir stripped_edge_support
+ 1123  mv *_support stripped_edge_support/
+ 1124  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i R$((i))_res -o R$((i))_stripped_edge_support;done
+ 1125  mkdir stripped_edge_support
+ 1126  mv *_support stripped_edge_support/
+ 1127  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1128  mkdir stripped_edge_support
+ 1129  mv *_support stripped_edge_support/
+ 1130  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i R$((i))_res -o R$((i))_stripped_edge_support;done
+ 1131  mkdir stripped_edge_support
+ 1132  mv *_support stripped_edge_support/
+ 1133  clear
+ 1134  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1135  mkdir stripped_edge_support
+ 1136  mv *_support stripped_edge_support/
+ 1137  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i R$((i))_res -o R$((i))_stripped_edge_support;done
+ 1138  mkdir stripped_edge_support
+ 1139  mv *_support stripped_edge_support/
+ 1140  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1141  mkdir stripped_edge_support
+ 1142  mv *_support stripped_edge_support/
+ 1143  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i R$((i))_res -o R$((i))_stripped_edge_support;done
+ 1144  mkdir stripped_edge_support
+ 1145  mv *_support stripped_edge_support/
+ 1146  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1147  mkdir stripped_edge_support
+ 1148  mv *_support stripped_edge_support/
+ 1149  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i R$((i))_res -o R$((i))_stripped_edge_support;done
+ 1150  mkdir stripped_edge_support
+ 1151  mv *_support stripped_edge_support/
+ 1152  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1153  mkdir stripped_edge_support
+ 1154  mv *_support stripped_edge_support/
+ 1155  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i R$((i))_res -o R$((i))_stripped_edge_support;done
+ 1156  mkdir stripped_edge_support
+ 1157  mv *_support stripped_edge_support/
+ 1158  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1159  mkdir stripped_edge_support
+ 1160  mv *_support stripped_edge_support/
+ 1161  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i R$((i))_res -o R$((i))_stripped_edge_support;done
+ 1162  mkdir stripped_edge_support
+ 1163  mv *_support stripped_edge_support/
+ 1164  pwd
+ 1165  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1166  mkdir FN_rates
+ 1167  mv *_FN FN_rates/
+ 1168  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e R$((i))_stripped_edge_support>>R$((i))_FN;done
+ 1169  mkdir FN_rates
+ 1170  mv *_FN FN_rates/
+ 1171  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1172  mkdir FN_rates
+ 1173  mv *_FN FN_rates/
+ 1174  clear
+ 1175  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e R$((i))_stripped_edge_support>>R$((i))_FN;done
+ 1176  mkdir FN_rates
+ 1177  mv *_FN FN_rates/
+ 1178  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1179  mkdir FN_rates
+ 1180  mv *_FN FN_rates/
+ 1181  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e R$((i))_stripped_edge_support>>R$((i))_FN;done
+ 1182  mkdir FN_rates
+ 1183  mv *_FN FN_rates/
+ 1184  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1185  mkdir FN_rates
+ 1186  mv *_FN FN_rates/
+ 1187  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e R$((i))_stripped_edge_support>>R$((i))_FN;done
+ 1188  mkdir FN_rates
+ 1189  mv *_FN FN_rates/
+ 1190  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1191  rm *_support
+ 1192  for i in {1..20};do perl /home/farah/Project/strip_edge_support.pl -i SP$((i)) -o SP$((i))_stripped_edge_support;done
+ 1193  mv *_support stripped_edge_support/
+ 1194  mkdir FN_rates
+ 1195  mv *_FN FN_rates/
+ 1196  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e R$((i))_stripped_edge_support>>R$((i))_FN;done
+ 1197  mkdir FN_rates
+ 1198  mv *_FN FN_rates/
+ 1199  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1200  mkdir FN_rates
+ 1201  mv *_FN FN_rates/
+ 1202  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e R$((i))_stripped_edge_support>>R$((i))_FN;done
+ 1203  mkdir FN_rates
+ 1204  mv *_FN FN_rates/
+ 1205  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1206  mkdir FN_rates
+ 1207  mv *_FN FN_rates/
+ 1208  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e R$((i))_stripped_edge_support>>R$((i))_FN;done
+ 1209  mkdir FN_rates
+ 1210  mv *_FN FN_rates/
+ 1211  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1212  mkdir FN_rates
+ 1213  mv *_FN FN_rates/
+ 1214  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e R$((i))_stripped_edge_support>>R$((i))_FN;done
+ 1215  mkdir FN_rates
+ 1216  mv *_FN FN_rates/
+ 1217  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1218  mkdir FN_rates
+ 1219  mv *_FN FN_rates/
+ 1220  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e R$((i))_stripped_edge_support>>R$((i))_FN;done
+ 1221  mkdir FN_rates
+ 1222  mv *_FN FN_rates/
+ 1223  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1224  mkdir FN_rates
+ 1225  mv *_FN FN_rates/
+ 1226  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e R$((i))_stripped_edge_support>>R$((i))_FN;done
+ 1227  mkdir FN_rates
+ 1228  mv *_FN FN_rates/
+ 1229  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1230  mkdir FN_rates
+ 1231  mv *_FN FN_rates/
+ 1232  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e R$((i))_stripped_edge_support>>R$((i))_FN;done
+ 1233  mkdir FN_rates
+ 1234  mv *_FN FN_rates/
+ 1235  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e SP$((i))_stripped_edge_support>>SP$((i))_FN;done
+ 1236  mkdir FN_rates
+ 1237  mv *_FN FN_rates/
+ 1238  for i in {1..20};do getFpFn.py -t /home/farah/Project/mammals-course-project/true.tree -e R$((i))_stripped_edge_support>>R$((i))_FN;done
+ 1239  mkdir FN_rates
+ 1240  mv *_FN FN_rates/
+ 1241  pwd
+ 1242  perl calculate_missingbranchrate_python.pl estimated_genetrees_strongILS__Astral_FN 
+ 1243  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl estimated_genetrees_strongILS__Astral_FN 
+ 1244  perl calculate_missingbranchrate_python.pl estimated_genetrees_strongILS_Phylonet_FN 
+ 1245  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl estimated_genetrees_strongILS_Phylonet_FN 
+ 1246  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl estimated_genetrees_weakILS_Astral_FN 
+ 1247  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl estimated_genetrees_weakILS_Phylonet_FN 
+ 1248  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl simTree_11taxa_100genes_noHGT_strongILS_Astral_FN 
+ 1249  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl simTree_11taxa_100genes_noHGT_strongILS_Phylonet_FN 
+ 1250  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl simTree_11taxa_100genes_noHGT_weakILS_Astral_FN 
+ 1251  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl simTree_11taxa_100genes_noHGT_weakILS_Phylonet_FN 
+ 1252  cat *>>noscale.25g.500b_missing_branch_rate
+ 1253  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.25g.500b_Astral_missing_branch_rate 
+ 1254  cat *>>noscale.25g.500b_Phylonet_missing_branch_rate
+ 1255  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.25g.500b_Phylonet_missing_branch_rate 
+ 1256  cat *>>noscale.50g.500b_Astral_missing_branch_rate
+ 1257  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.50g.500b_Astral_missing_branch_rate 
+ 1258  cat *>>noscale.50g.500b_Phylonet_missing_branch_rate
+ 1259  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.50g.500b_Phylonet_missing_branch_rate 
+ 1260  cat *>>noscale.100g.500b_Astral_missing_branch_rate
+ 1261  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.100g.500b_Astral_missing_branch_rate 
+ 1262  cat *>>noscale.100g.500b_Phylonet_missing_branch_rate
+ 1263  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.100g.500b_Phylonet_missing_branch_rate 
+ 1264  cat *>>noscale.200g.250b_Astral_missing_branch_rate
+ 1265  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.200g.250b_Astral_missing_branch_rate 
+ 1266  cat *>>noscale.200g.250b_Phylonet_missing_branch_rate
+ 1267  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.200g.250b_Phylonet_missing_branch_rate 
+ 1268  cat *>>noscale.200g.500b_Astral_missing_branch_rate
+ 1269  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.200g.500b_Astral_missing_branch_rate 
+ 1270  cat *>>noscale.200g.500b_Phylonet_missing_branch_rate
+ 1271  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.200g.500b_Phylonet_missing_branch_rate 
+ 1272  cat *>>noscale.200g.1000b_Astral_missing_branch_rate
+ 1273  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.200g.1000b_Astral_missing_branch_rate 
+ 1274  cat *>>noscale.200g.1000b_Phylonet_missing_branch_rate
+ 1275  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.200g.1000b_Phylonet_missing_branch_rate 
+ 1276  cat *>>noscale.200g.1500b_Astral_missing_branch_rate
+ 1277  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.200g.1500b_Astral_missing_branch_rate 
+ 1278  cat *>>noscale.200g.1500b_Phylonet_missing_branch_rate
+ 1279  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.200g.1500b_Phylonet_missing_branch_rate 
+ 1280  cat *>>noscale.200g.true_Astral_missing_branch_rate
+ 1281  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.200g.true_Astral_missing_branch_rate 
+ 1282  cat *>>noscale.200g.true_Phylonet_missing_branch_rate
+ 1283  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.200g.true_Phylonet_missing_branch_rate 
+ 1284  cat *>>noscale.400g.500b_Astral_missing_branch_rate
+ 1285  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.400g.500b_Astral_missing_branch_rate 
+ 1286  cat *>>noscale.400g.500b_Phylonet_missing_branch_rate
+ 1287  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.400g.500b_Phylonet_missing_branch_rate 
+ 1288  cat *>>noscale.800g.500b_Astral_missing_branch_rate
+ 1289  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.800g.500b_Astral_missing_branch_rate 
+ 1290  cat *>>noscale.800g.500b_Phylonet_missing_branch_rate
+ 1291  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl noscale.800g.500b_Phylonet_missing_branch_rate 
+ 1292  cat *>>scale2d.200g.500b_Astral_missing_branch_rate
+ 1293  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl scale2d.200g.500b_Astral_missing_branch_rate 
+ 1294  cat *>>scale2d.200g.500b_Phylonet_missing_branch_rate
+ 1295  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl scale2d.200g.500b_Phylonet_missing_branch_rate 
+ 1296  cat *>>scale2u.200g.500b_Astral_missing_branch_rate
+ 1297  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl scale2u.200g.500b_Astral_missing_branch_rate 
+ 1298  cat *>>scale2u.200g.500b_Phylonet_missing_branch_rate
+ 1299  perl /home/farah/Downloads/calculate_missingbranchrate_python.pl scale2u.200g.500b_Phylonet_missing_branch_rate 
+ 1300  java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP1_stripped_edge_support Rep1>EL1
+ 1301  clear
+ 1302  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Rep$((i))>EL$((i));done
+ 1303  cut -d ' ' -f2 EL1
+ 1304  cut -d ' ' -f2 EL1>>EL1
+ 1305  cut -d ' ' -f9 EL1
+ 1306  cut -d ' ' -f10 EL1
+ 1307  cut -d ' ' -f1 EL1
+ 1308  cut -d ' ' -f2 EL1
+ 1309  cut -d ' ' -f3 EL1
+ 1310  clear
+ 1311  cut -d ':' -f22 EL1
+ 1312  cut -d ':' -f23 EL1
+ 1313  cut -d ':' -f24 EL1
+ 1314  clear
+ 1315  awk 'lineages/{print $NF}' EL1
+ 1316  awk 'lineages{print $NF}' EL1
+ 1317  cat EL1
+ 1318  cat EL1|awk '{print $NF}'
+ 1319  cat EL1
+ 1320  cat EL1|awk '{print $NF}'
+ 1321  awk '{print $NF}'
+ 1322  awk '{print $NF}' EL1
+ 1323  clear
+ 1324  awk '{print $2,$NF}' EL1
+ 1325  awk '{print $2}' EL1
+ 1326  awk '{print $NF}' EL1
+ 1327  awk '{print $NF}' EL1>>EL1
+ 1328  awk '{print $NF}' EL1>EL1
+ 1329  java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP1_stripped_edge_support Rep1>EL1
+ 1330  clear
+ 1331  awk '{print $NF}' EL1
+ 1332  rev EL1 | cut -d. -f1 | rev
+ 1333  rev EL1
+ 1334  awk '{print $2}' EL1
+ 1335  clear
+ 1336  awk -F. 'NF>1{print $NF}' EL1
+ 1337  awk -F. '{print $NF}' EL1
+ 1338  awk -F '{print $NF}' EL1
+ 1339  awk -F ' ' '{print $NF}' EL1
+ 1340  awk -F' ' 'NF>1{print $NF}' EL1
+ 1341  awk -F ' ' 'NF>1{print $NF}' EL1
+ 1342  clear
+ 1343  tail -1 EL1
+ 1344  tail -1 EL1|awk '{print $NF}'
+ 1345  tail -1 EL1|awk '{print $NF}'>>EL1
+ 1346  clear
+ 1347  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL$((i));done
+ 1348  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>EL$((i));done
+ 1349  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Rep$((i))>EL$((i));done
+ 1350  tail -1 EL1|awk '{print $NF}'>EL1
+ 1351  tail -1 EL1|awk '{print $NF}'
+ 1352  tail -1 EL1|awk '{print $NF}'>temp1
+ 1353  tail -1 EL1|awk '{print $NF}'>EL1
+ 1354  tail -1 EL1|awk '{print $NF}'>EL_1
+ 1355  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done 
+ 1356  cat EL_*>>estimated_strong_ILS_EL 
+ 1357  clear
+ 1358  perl /home/farah/Downloads/calculate_average_new.pl estimated_strong_ILS_EL
+ 1359  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Rep$((i))>EL$((i));done
+ 1360  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1361  cat EL_*>>estimated_weak_ILS_EL 
+ 1362  perl /home/farah/Downloads/calculate_average_new.pl estimated_weak_ILS_EL
+ 1363  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Rep$((i))>EL$((i));done
+ 1364  clear
+ 1365  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support simtrees_$((i))>EL$((i));done
+ 1366  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1367  cat EL_*>>simulated_strong_noHGT_ILS_EL 
+ 1368  perl /home/farah/Downloads/calculate_average_new.pl simulated_strong_noHGT_ILS_EL 
+ 1369  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support simtrees_$((i))>EL$((i));done
+ 1370  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1371  cat EL_*>>simulated_weak_ILS_noHGT_EL 
+ 1372  perl /home/farah/Downloads/calculate_average_new.pl simulated_weak_ILS_noHGT_EL 
+ 1373  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Rep1_stripped_edge_support -i Rep1 -o temp1 2> log1;done
+ 1374  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Rep$((i))_stripped_edge_support -i Rep$((i)) -o temp$((i)) 2> log$((i));done
+ 1375  rmv temp*
+ 1376  rm temp*
+ 1377  clear
+ 1378  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1379  cat QS*>>estimated_strong_ILS_QS
+ 1380  perl /home/farah/Downloads/calculate_average_new.pl estimated_strong_ILS_QS 
+ 1381  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Rep$((i))_stripped_edge_support -i Rep$((i)) -o temp$((i)) 2> log$((i));done
+ 1382  rm temp*
+ 1383  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1384  cat QS*>>estimated_weak_ILS_QS
+ 1385  perl /home/farah/Downloads/calculate_average_new.pl estimated_weak_ILS_QS 
+ 1386  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q simtrees$((i))_stripped_edge_support -i simtrees_$((i)) -o temp$((i)) 2> log$((i));done
+ 1387  rm temp*
+ 1388  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1389  cat QS*>>simulated_strog_ILS_QS
+ 1390  perl /home/farah/Downloads/calculate_average_new.pl simulated_strog_ILS_QS 
+ 1391  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q simtrees$((i))_stripped_edge_support -i simtrees_$((i)) -o temp$((i)) 2> log$((i));done
+ 1392  rm temp*
+ 1393  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1394  cat QS*>>simulated_weak_ILS_QS
+ 1395  perl /home/farah/Downloads/calculate_average_new.pl simulated_weak_ILS_QS 
+ 1396  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Best$((i))>EL$((i));done
+ 1397  rm EL*
+ 1398  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Best.$((i))>EL$((i));done
+ 1399  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1400  cat EL_*>>noscale.25g.500b_EL
+ 1401  perl /home/farah/Downloads/calculate_average_new.pl noscale.25g.500b_EL 
+ 1402  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Best.$((i))>EL$((i));done
+ 1403  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1404  cat EL_*>>noscale.50g.500b_EL
+ 1405  perl /home/farah/Downloads/calculate_average_new.pl noscale.50g.500b_EL 
+ 1406  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Best.$((i))>EL$((i));done
+ 1407  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1408  cat EL_*>>noscale.100g.500b_EL
+ 1409  perl /home/farah/Downloads/calculate_average_new.pl noscale.100g.500b_EL 
+ 1410  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Best.$((i))>EL$((i));done
+ 1411  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1412  cat EL_*>>noscale.100g.500b_EL
+ 1413  perl /home/farah/Downloads/calculate_average_new.pl noscale.100g.500b_EL rm noscale.100g.500b_EL 
+ 1414  cat EL_*>>noscale.200g.250b_EL
+ 1415  perl /home/farah/Downloads/calculate_average_new.pl noscale.200g.250b_EL 
+ 1416  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Best.$((i))>EL$((i));done
+ 1417  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1418  cat EL_*>>noscale.200g.500b_EL
+ 1419  perl /home/farah/Downloads/calculate_average_new.pl noscale.200g.500b_EL 
+ 1420  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Best.$((i))>EL$((i));done
+ 1421  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1422  cat EL_*>>noscale.200g.1000b_EL
+ 1423  perl /home/farah/Downloads/calculate_average_new.pl noscale.200g.1000b_EL 
+ 1424  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Best.$((i))>EL$((i));done
+ 1425  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1426  cat EL_*>>noscale.200g.1500b_EL
+ 1427  perl /home/farah/Downloads/calculate_average_new.pl noscale.200g.1500b_EL 
+ 1428  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support BS.$((i))>EL$((i));done
+ 1429  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1430  cat EL_*>>noscale.200g.true_EL
+ 1431  perl /home/farah/Downloads/calculate_average_new.pl noscale.200g.true_EL 
+ 1432  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Best.$((i))>EL$((i));done
+ 1433  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1434  cat EL_*>>noscale.400g.500b_EL
+ 1435  perl /home/farah/Downloads/calculate_average_new.pl noscale.400g.500b_EL 
+ 1436  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Best.$((i))>EL$((i));done
+ 1437  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1438  cat EL_*>>noscale.800g.500b_EL
+ 1439  perl /home/farah/Downloads/calculate_average_new.pl noscale.800g.500b_EL 
+ 1440  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Best.$((i))>EL$((i));done
+ 1441  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1442  cat EL_*>>scale2d.200g.500b_EL
+ 1443  perl /home/farah/Downloads/calculate_average_new.pl scale2d.200g.500b_EL 
+ 1444  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count SP$((i))_stripped_edge_support Best.$((i))>EL$((i));done
+ 1445  for i in {1..20};do tail -1 EL$((i))|awk '{print $NF}'>>EL_$((i));done
+ 1446  cat EL_*>>scale2u.200g.500b_EL
+ 1447  perl /home/farah/Downloads/calculate_average_new.pl scale2u.200g.500b_EL 
+ 1448  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i Best.$((i)) -o temp$((i)) 2> log$((i));done
+ 1449  rm temp*
+ 1450  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1451  rm temp*
+ 1452  cat QS*>>noscale.25g.500b_QS
+ 1453  perl /home/farah/Downloads/calculate_average_new.pl noscale.25g.500b_QS 
+ 1454  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i Best.$((i)) -o temp$((i)) 2> log$((i));done
+ 1455  rm temp*
+ 1456  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1457  rm temp*
+ 1458  cat QS*>>noscale.50g.500b_QS
+ 1459  perl /home/farah/Downloads/calculate_average_new.pl noscale.50g.500b_QS 
+ 1460  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i Best.$((i)) -o temp$((i)) 2> log$((i));done
+ 1461  rm temp*
+ 1462  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1463  cat QS*>>noscale.100g.500b_QS
+ 1464  perl /home/farah/Downloads/calculate_average_new.pl noscale.100g.500b_QS 
+ 1465  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i Best.$((i)) -o temp$((i)) 2> log$((i));done
+ 1466  rm temp*
+ 1467  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1468  cat QS*>>noscale.200g.250b_QS
+ 1469  perl /home/farah/Downloads/calculate_average_new.pl noscale.200g.250b_QS 
+ 1470  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i Best.$((i)) -o temp$((i)) 2> log$((i));done
+ 1471  rm temp*
+ 1472  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1473  cat QS*>>noscale.200g.500b_QS
+ 1474  perl /home/farah/Downloads/calculate_average_new.pl noscale.200g.500b_QS 
+ 1475  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i Best.$((i)) -o temp$((i)) 2> log$((i));done
+ 1476  rm temp*
+ 1477  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1478  cat QS*>>noscale.200g.1000b_QS
+ 1479  perl /home/farah/Downloads/calculate_average_new.pl noscale.200g.1000b_QS 
+ 1480  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i Best.$((i)) -o temp$((i)) 2> log$((i));done
+ 1481  rm temp*
+ 1482  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1483  cat QS*>>noscale.200g.1500b_QS
+ 1484  perl /home/farah/Downloads/calculate_average_new.pl noscale.200g.1500b_QS 
+ 1485  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i Best.$((i)) -o temp$((i)) 2> log$((i));done
+ 1486  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1487  cat QS*>>noscale.200g.true_QS
+ 1488  perl /home/farah/Downloads/calculate_average_new.pl noscale.200g.true_QS 
+ 1489  clear
+ 1490  rm log*
+ 1491  rm QS*
+ 1492  rm temp*
+ 1493  rm noscale.200g.true_QS 
+ 1494  clear
+ 1495  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i BS.$((i)) -o temp$((i)) 2> log$((i));done
+ 1496  rm temp*
+ 1497  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1498  cat QS*>>noscale.200g.true_QS
+ 1499  perl /home/farah/Downloads/calculate_average_new.pl noscale.200g.true_QS 
+ 1500  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i Best.$((i)) -o temp$((i)) 2> log$((i));done
+ 1501  rm temp*
+ 1502  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1503  cat QS*>>noscale.400g.500b_QS
+ 1504  perl /home/farah/Downloads/calculate_average_new.pl noscale.400g.500b_QS 
+ 1505  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i Best.$((i)) -o temp$((i)) 2> log$((i));done
+ 1506  rm temp*
+ 1507  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1508  cat QS*>>noscale.800g.500b_QS
+ 1509  perl /home/farah/Downloads/calculate_average_new.pl noscale.800g.500b_QS 
+ 1510  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i Best.$((i)) -o temp$((i)) 2> log$((i));done
+ 1511  rm temp*
+ 1512  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1513  cat QS*>>scale2d.200g.500b_QS
+ 1514  perl /home/farah/Downloads/calculate_average_new.pl scale2d.200g.500b_QS 
+ 1515  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q R$((i))_stripped_edge_support -i Best.$((i)) -o temp$((i)) 2> log$((i));done
+ 1516  rm temp*
+ 1517  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1518  cat QS*>>scale2u.200g.500b_QS
+ 1519  perl /home/farah/Downloads/calculate_average_new.pl scale2u.200g.500b_QS 
+ 1520  wc -l Rep1
+ 1521  cat temp.py
+ 1522  cat>temp.py
+ 1523  python
+ 1524  python temp.py
+ 1525  clear
+ 1526  python temp.py
+ 1527  clear
+ 1528  python temp.py
+ 1529  shuf -n 5 Rep1
+ 1530  clear
+ 1531  for i in {1..20}; do shuf -n 5 Rep$((i))>>Rep$((i))_5genes;done
+ 1532  rmv *_5genes
+ 1533  rm *_5genes
+ 1534  for i in {1..20}; do shuf -n 5 Rep$((i))>>Rep$((i))_5genes|mkdir 5genes|mv *_5genes 5genes;done
+ 1535  mkdir estimated_5genes_strongILS
+ 1536  clear
+ 1537  for i in {1..20}; do shuf -n 5 Rep$((i))>>Rep$((i))_5genes|mv *_5genes estimated_5genes_strongILS/;done
+ 1538  for i in {1..20}; do shuf -n 5 Rep$((i))>>Rep$((i))_5genes;done
+ 1539  mkdir estimated_5genes_strongILS
+ 1540  mv *_5genes estimated_5genes_strongILS/
+ 1541  for i in {1..20}; do shuf -n 10 Rep$((i))>>Rep$((i))_5genes;done
+ 1542  rm *_5genes
+ 1543  for i in {1..20}; do shuf -n 10 Rep$((i))>>Rep$((i))_10genes;done
+ 1544  mkdir estimated_10genes_strongILS
+ 1545  mv *_genes estimated_10genes_strongILS/
+ 1546  mv *_10genes estimated_10genes_strongILS/
+ 1547  for i in {1..20}; do shuf -n 15 Rep$((i))>>Rep$((i))_15genes;done
+ 1548  mkdir estimated_15genes_strongILS
+ 1549  mv *_15genes estimated_15genes_strongILS/
+ 1550  for i in {1..20}; do shuf -n 25 Rep$((i))>>Rep$((i))_25genes;done
+ 1551  mkdir estimated_25genes_strongILS
+ 1552  mv *_25genes estimated_25genes_strongILS/
+ 1553  for i in {1..20}; do shuf -n 50 Rep$((i))>>Rep$((i))_50genes;done
+ 1554  mkdir estimated_50genes_strongILS
+ 1555  mv *_50genes estimated_50genes_strongILS/
+ 1556  mkdir estimated_100genes_strongILS
+ 1557  mv Rep8 estimated_100genes_strongILS/
+ 1558  mv Rep* estimated_100genes_strongILS/
+ 1559  mkdir estimated_5genes_strongILS
+ 1560  for i in {1..20}; do shuf -n 5 Rep$((i))>>Rep$((i))_5genes;done
+ 1561  for i in {1..20}; do shuf -n 15 Rep$((i))>>Rep$((i))_15genes;done
+ 1562  for i in {1..20}; do shuf -n 25 Rep$((i))>>Rep$((i))_25genes;done
+ 1563  for i in {1..20}; do shuf -n 50 Rep$((i))>>Rep$((i))_50genes;done
+ 1564  mkdir estimated_15genes_strongILS
+ 1565  mkdir estimated_25genes_strongILS
+ 1566  mkdir estimated_50genes_strongILS
+ 1567  mkdir estimated_100genes_strongILS
+ 1568  mv *_5genes estimated_5genes_weakILS/
+ 1569  mv *_15genes estimated_15genes_weakILS/
+ 1570  mv *_25genes estimated_25genes_weakILS/
+ 1571  mv *_50genes estimated_50genes_weakILS/
+ 1572  mv Rep* estimated_100genes_weakILS/
+ 1573  mkdir simulated_5genes_strongILS
+ 1574  mkdir simulated_15genes_strongILS
+ 1575  mkdir simulated_25genes_strongILS
+ 1576  mkdir simulated_50genes_strongILS
+ 1577  mkdir simulated_100genes_strongILS
+ 1578  for i in {1..20}; do shuf -n 5 simtrees_$((i))>>simtrees$((i))_5genes;done
+ 1579  for i in {1..20}; do shuf -n 15 simtrees_$((i))>>simtrees$((i))_15genes;done
+ 1580  for i in {1..20}; do shuf -n 25 simtrees_$((i))>>simtrees$((i))_25genes;done
+ 1581  for i in {1..20}; do shuf -n 50 simtrees_$((i))>>simtrees$((i))_50genes;done
+ 1582  mv *_5genes simulated_5genes_strongILS/
+ 1583  mv *_15genes simulated_15genes_strongILS/
+ 1584  mv *_25genes simulated_25genes_strongILS/
+ 1585  mv *_50genes simulated_50genes_strongILS/
+ 1586  mv simtrees_* simulated_100genes_strongILS/
+ 1587  mkdir simulated_5genes_weakILS
+ 1588  mkdir simulated_15genes_weakILS
+ 1589  mkdir simulated_25genes_weakILS
+ 1590  mkdir simulated_50genes_weakILS
+ 1591  mkdir simulated_100genes_weakILS
+ 1592  for i in {1..20}; do shuf -n 5 simtrees_$((i))>>simtrees$((i))_5genes;done
+ 1593  for i in {1..20}; do shuf -n 15 simtrees_$((i))>>simtrees$((i))_15genes;done
+ 1594  clear
+ 1595  for i in {1..20}; do shuf -n 25 simtrees_$((i))>>simtrees$((i))_25genes;done
+ 1596  for i in {1..20}; do shuf -n 50 simtrees_$((i))>>simtrees$((i))_50genes;done
+ 1597  mv *_5genes simulated_5genes_weakILS/
+ 1598  mv *_15genes simulated_15genes_weakILS/
+ 1599  mv *_25genes simulated_25genes_weakILS/
+ 1600  mv *_50genes simulated_50genes_weakILS/
+ 1601  mv simtrees_* simulated_100genes_weakILS/
+ 1602  tail -1 Rep1_model_tree|awk '{print $NF}'>>EL1
+ 1603  tail -1 Rep1_model_tree_result|awk '{print $NF}'>>EL1
+ 1604  tail -1 Rep_model_tree_result|awk '{print $NF}'>>EL1
+ 1605  for i in {1..20};do tail -1 Rep$((i))_deepcoal_count|awk '{print $NF}'>>deepcoal_count_$((i));done
+ 1606  cat *_deepcoal_count>>estimated_strongILS_deepcoal_count
+ 1607  cat deepcoal_count_*>>estimated_strongILS_deepcoal_count
+ 1608  perl /home/farah/Downloads/calculate_average_new.pl estimated_strongILS_deepcoal_count 
+ 1609  for i in {1..20};do tail -1 Rep$((i))_deepcoal_count|awk '{print $NF}'>>deepcoal_count_$((i));done
+ 1610  cat deepcoal_count_*>>estimated_weakILS_deepcoal_count
+ 1611  perl /home/farah/Downloads/calculate_average_new.pl estimated_weakILS_deepcoal_count 
+ 1612  for i in {1..20};do tail -1 simtree$((i))_deepcoal_count|awk '{print $NF}'>>deepcoal_count_$((i));done
+ 1613  cat deepcoal_count_*>>simulated_strongILS_deepcoal_count
+ 1614  perl /home/farah/Downloads/calculate_average_new.pl simulated_strongILS_deepcoal_count 
+ 1615  for i in {1..20};do tail -1 simtree$((i))_deepcoal_count|awk '{print $NF}'>>deepcoal_count_$((i));done
+ 1616  cat deepcoal_count_*>>simulated_weakILS_deepcoal_count
+ 1617  perl /home/farah/Downloads/calculate_average_new.pl simulated_weakILS_deepcoal_count 
+ 1618  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1619  rm temp*
+ 1620  cat QS*>>estimated_strongILS_QS
+ 1621  perl /home/farah/Downloads/calculate_average_new.pl estimated_strongILS_QS 
+ 1622  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1623  rm temp*
+ 1624  cat QS*>>estimated_weakILS_QS
+ 1625  perl /home/farah/Downloads/calculate_average_new.pl estimated_weakILS_QS 
+ 1626  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1627  rm temp*
+ 1628  cat QS*>>simulated_strongILS_QS
+ 1629  perl /home/farah/Downloads/calculate_average_new.pl simulated_strongILS_QS 
+ 1630  for i in {1..20};do grep "Final quartet score is:" log$((i))>>temp$((i));cut -d ' ' -f5 temp$((i))>QS$((i));done
+ 1631  rm temp*
+ 1632  cat QS*>>simulated_strongILS_QS
+ 1633  perl /home/farah/Downloads/calculate_average_new.pl simulated_weakILS_QS 
+ 1634  for i in {1..20}; do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))_5genes -o Res$((i))_5genes;done
+ 1635  mkdir -r Astral
+ 1636  mkdir --help
+ 1637  mkdir -p Astral Phylonet
+ 1638  mkdir -p estimated_*/Astral 
+ 1639  for dir in */;do mkdir -- "$dir"/{Astral,Phylonet};done
+ 1640  for dir in */Astral/;do mkdir -- "$dir"/{quartet_count_from_gt_consistent_with _sptree,sptree_with_max_quartet_consistency};done
+ 1641  for dir in */Astral/;do mkdir -- "$dir/quartet_count_from_gt_consistent_with _sptree";done
+ 1642  for dir in */Astral/;do mkdir -- "$dir/sptree_with_max_quartet_consistency";done
+ 1643  for dir in */Phylonet/;do mkdir -- "$dir/deepcoal_count";done
+ 1644  for dir in */Phylonet/;do mkdir -- "$dir/infer_st";done
+ 1645  for dir in */;do mkdir -- "$dir"/{Astral,Phylonet};done
+ 1646  for dir in */Astral/;do mkdir -- "$dir/quartet_count_from_gt_consistent_with _sptree";done
+ 1647  for dir in */Astral/;do mkdir -- "$dir/sptree_with_max_quartet_consistency";done
+ 1648  for dir in */Phylonet/;do mkdir -- "$dir/deepcoal_count";done
+ 1649  for dir in */Phylonet/;do mkdir -- "$dir/infer_st";done
+ 1650  for dir in */;do mkdir -- "$dir"/{Astral,Phylonet};done
+ 1651  for dir in */Astral/;do mkdir -- "$dir/quartet_count_from_gt_consistent_with _sptree";done
+ 1652  for dir in */Astral/;do mkdir -- "$dir/sptree_with_max_quartet_consistency";done
+ 1653  for dir in */Phylonet/;do mkdir -- "$dir/deepcoal_count";done
+ 1654  for dir in */Phylonet/;do mkdir -- "$dir/infer_st";done
+ 1655  for dir in */;do mkdir -- "$dir"/{Astral,Phylonet};done
+ 1656  for dir in */Astral/;do mkdir -- "$dir/quartet_count_from_gt_consistent_with _sptree";done
+ 1657  for dir in */Astral/;do mkdir -- "$dir/sptree_with_max_quartet_consistency";done
+ 1658  for dir in */Phylonet/;do mkdir -- "$dir/deepcoal_count";done
+ 1659  for dir in */Phylonet/;do mkdir -- "$dir/infer_st";done
+ 1660  find -type d
+ 1661  find -type d ls
+ 1662  find -type d -ls
+ 1663  find -type d "Rep*_5genes"
+ 1664  find -type d "Rep"
+ 1665  find -type d 'Rep'
+ 1666  find -name 'Rep'
+ 1667  find -name 'Rep*'
+ 1668  rm Res*
+ 1669  pwd
+ 1670  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))* -o Res$((i));done
+ 1671  rm Res*
+ 1672  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))* -o Res$((i));done
+ 1673  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed Rep$((i))*>Res$((i))_deepcoal;done
+ 1674  mv *_deepcoal Phylonet/deepcoal_count/
+ 1675  mv Res* Phylonet/infer_st/
+ 1676  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))* -o Res$((i));done
+ 1677  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed Rep$((i))*>Res$((i))_deepcoal;done
+ 1678  mv *_deepcoal Phylonet/deepcoal_count/
+ 1679  mv Res* Phylonet/infer_st/
+ 1680  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))* -o Res$((i));done
+ 1681  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed Rep$((i))*>Res$((i))_deepcoal;done
+ 1682  mv *_deepcoal Phylonet/deepcoal_count/
+ 1683  mv Res* Phylonet/infer_st/
+ 1684  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))* -o Res$((i));done
+ 1685  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed Rep$((i))*>Res$((i))_deepcoal;done
+ 1686  mv *_deepcoal Phylonet/deepcoal_count/
+ 1687  mv Res* Phylonet/infer_st/
+ 1688  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -i Rep$((i)) -o temp$((i)) 2> log$((i));done
+ 1689  rm temp*
+ 1690  rm log*
+ 1691  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -i Rep$((i))* -o temp$((i)) 2> log$((i));done
+ 1692  rm temp*
+ 1693  mv log* Astral/quartet_count_from_gt_consistent_with\ _sptree/
+ 1694  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep$((i))* -o Res$((i));done
+ 1695  rm Res*
+ 1696  clear
+ 1697  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep$((i))* -o Res$((i))>log$((i));done
+ 1698  mv Res* Astral/sptree_with_max_quartet_consistency/
+ 1699  mv log* Astral/sptree_with_max_quartet_consistency/
+ 1700  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -i Rep$((i))* -o temp$((i)) 2> log$((i));done
+ 1701  rm temp*
+ 1702  mv log* Astral/quartet_count_from_gt_consistent_with\ _sptree/
+ 1703  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep$((i))* -o Res$((i))>log$((i));done
+ 1704  mv log* Astral/sptree_with_max_quartet_consistency/
+ 1705  mv Res* Astral/sptree_with_max_quartet_consistency/
+ 1706  cat home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed
+ 1707  more home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed
+ 1708  pwd
+ 1709  ls
+ 1710  cat /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed
+ 1711  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed Rep$((i))*>Res$((i))_deepcoal;done
+ 1712  rm *_deepcoal
+ 1713  java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed Rep1_5genes>Res1_deepcoal
+ 1714  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed Rep$((i))*>Res$((i))_deepcoal;done
+ 1715  rm Res*
+ 1716  cat Rep*
+ 1717  clear
+ 1718  for i in {1..5};do cat Rep$((i))*;done
+ 1719  clear
+ 1720  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed Rep$((i))_*>Res$((i))_deepcoal;done
+ 1721  mv *_deepcoal Phylonet/deepcoal_count/
+ 1722  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -i Rep$((i))_* -o temp$((i)) 2> log$((i));done
+ 1723  rm temp*
+ 1724  mv log* Astral/quartet_count_from_gt_consistent_with\ _sptree/
+ 1725  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep$((i))_* -o Res$((i))>log$((i));done
+ 1726  mv log* Astral/sptree_with_max_quartet_consistency/
+ 1727  mv Res* Astral/sptree_with_max_quartet_consistency/
+ 1728  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep$((i))_* -o Res$((i))>>log$((i));done
+ 1729  clear
+ 1730  rm log*
+ 1731  rm Res*
+ 1732  /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep1_* -o Res1>>log1
+ 1733  cat Rep1_*
+ 1734  /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep1_* -o Res1>log1
+ 1735  clear
+ 1736  /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep1_* -o Res1 2> log1
+ 1737  /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep1_5genes -o Res1 2> log1
+ 1738  /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep1_5genes -o Res1 
+ 1739  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep$((i))_* -o Res$((i))>>log$((i));done
+ 1740  rm log*
+ 1741  rm Res*
+ 1742  clear
+ 1743  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep$((i))_* -o Res$((i)) 2> log$((i));done
+ 1744  mv log* Astral/sptree_with_max_quartet_consistency/
+ 1745  mv Res* Astral/sptree_with_max_quartet_consistency/
+ 1746  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))* -o Res$((i));done
+ 1747  rm Res*
+ 1748  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))_* -o Res$((i));done
+ 1749  clear
+ 1750  mv Res* Phylonet/infer_st/
+ 1751  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed Rep$((i))_*>Res$((i))_deepcoal;done
+ 1752  mv *_deepcoal Phylonet/deepcoal_count/
+ 1753  clear
+ 1754  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -i Rep$((i))_* -o temp$((i)) 2> log$((i));done
+ 1755  rm temp*
+ 1756  mv log* Astral/quartet_count_from_gt_consistent_with\ _sptree/
+ 1757  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep$((i))_* -o Res$((i)) 2> log$((i));done
+ 1758  mv log* Astral/sptree_with_max_quartet_consistency/
+ 1759  mv Res* Astral/sptree_with_max_quartet_consistency/
+ 1760  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))_* -o Res$((i));done
+ 1761  mv Res* Phylonet/infer_st/
+ 1762  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed Rep$((i))_*>Res$((i))_deepcoal;done
+ 1763  mv *_deepcoal Phylonet/deepcoal_count/
+ 1764  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -i Rep$((i))_* -o temp$((i)) 2> log$((i));done
+ 1765  rm temp*
+ 1766  mv log* Astral/quartet_count_from_gt_consistent_with\ _sptree/
+ 1767  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep$((i))_* -o Res$((i)) 2> log$((i));done
+ 1768  mv Res* Astral/sptree_with_max_quartet_consistency/
+ 1769  mv log* Astral/sptree_with_max_quartet_consistency/
+ 1770  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))_* -o Res$((i));done
+ 1771  mv Res* Phylonet/infer_st/
+ 1772  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed Rep$((i))_*>Res$((i))_deepcoal;done
+ 1773  mv *_deepcoal Phylonet/deepcoal_count/
+ 1774  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -i Rep$((i))_* -o temp$((i)) 2> log$((i));done
+ 1775  rm temp*
+ 1776  mv log* Astral/quartet_count_from_gt_consistent_with\ _sptree/
+ 1777  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep$((i))_* -o Res$((i)) 2> log$((i));done
+ 1778  mv log* Astral/sptree_with_max_quartet_consistency/
+ 1779  mv Res* Astral/sptree_with_max_quartet_consistency/
+ 1780  clear
+ 1781  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))_* -o Res$((i));done
+ 1782  mv Res* Phylonet/infer_st/
+ 1783  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar deep_coal_count /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed Rep$((i))_*>Res$((i))_deepcoal;done
+ 1784  mv *_deepcoal Phylonet/deepcoal_count/
+ 1785  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -i Rep$((i))_* -o temp$((i)) 2> log$((i));done
+ 1786  rm temp*
+ 1787  mv log* Astral/quartet_count_from_gt_consistent_with\ _sptree/
+ 1788  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep$((i))_* -o Res$((i)) 2> log$((i));done
+ 1789  mv log* Astral/sptree_with_max_quartet_consistency/
+ 1790  mv Res* Astral/sptree_with_max_quartet_consistency/
+ 1791  pwd
+ 1792  bash /home/farah/Project/run_command.sh
+ 1793  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -i Rep$((i))_* -o temp$((i)) 2> log$((i));done
+ 1794  rm temp*
+ 1795  mv log* Astral/quartet_count_from_gt_consistent_with\ _sptree/
+ 1796  bash /home/farah/Project/run_command.sh
+ 1797  java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -i Rep1_15genes -o SP1 2> log1_temp
+ 1798  java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q /home/farah/Project/mammals-course-project/true.tree -i Rep1_15genes -o Res1 2> log1_QS
+ 1799  java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q /home/farah/Project/11-taxon_Bioinformatics/model_tree_trimmed -i Rep1_15genes -o Res1 2> log1_QS
+ 1800  bash /home/farah/Project/run_command.sh
+ 1801  mv log*_QS ../
+ 1802  mv log*_QS quartet_count_from_gt_consistent_with\ _sptree/
+ 1803  bash /home/farah/Project/run_command.sh
+ 1804  clear
+ 1805  bash /home/farah/Project/run_command.sh
+ 1806  grep "Final quartet score is:" log1>>temp;cut -d ' ' -f5 temp>QS
+ 1807  pwd
+ 1808  for file in */Astral/quartet_count_from_gt_consistent_with_sptree;do cat *>>QS;done
+ 1809  for file in */Astral/quartet_count_from_gt_consistent_with_sptree/;do cat $file >>QS;done
+ 1810  for file in */Astral/quartet_count_from_gt_consistent_with_sptree/*;do cat $file >>QS;done
+ 1811  for d in */Astral/quartet_count_from_gt_consistent_with_sptree/ ; do (cd "$d" && cat $file/* >>QS); done
+ 1812  for d in */Astral/quartet_count_from_gt_consistent_with_sptree/ ; do (cd "$d" &&
+ 1813  grep "Final quartet score is:" QS>>temp;cut -d ' ' -f5 temp>QS_
+ 1814  pwd
+ 1815  bash /home/farah/Project/Score_avg.sh
+ 1816  clear
+ 1817  bash /home/farah/Project/Score_avg.sh
+ 1818  sudo find . -d "quartet_count_from_gt_consistent_with _sptree" | rename "quartet_count_from_gt_consistent_with_sptree"
+ 1819  find -d "quartet_count_from_gt_consistent_with _sptree" | rename "quartet_count_from_gt_consistent_with_sptree"
+ 1820  find -name "quartet_count_from_gt_consistent_with _sptree" | rename "quartet_count_from_gt_consistent_with_sptree"
+ 1821  clear
+ 1822  mv -R quartet_count_from_gt_consistent_ with_sptree quartet_count_from_gt_consistent_with_sptree
+ 1823  mv --help
+ 1824  mv -t quartet_count_from_gt_consistent_ with_sptree quartet_count_from_gt_consistent_with_sptree
+ 1825  mv -t "quartet_count_from_gt_consistent_ with_sptree" "quartet_count_from_gt_consistent_with_sptree"
+ 1826  mv '*/Astral/quartet_count_from_gt_consistent_ with_sptree' quartet_count_from_gt_consistent_with_sptree
+ 1827  for dir in */Astral/;do mv "quartet_count_from_gt_consistent_ with_sptree" "quartet_count_from_gt_consistent_with_sptree"
+ 1828  for dir in */Astral/;do mv "quartet_count_from_gt_consistent_ with_sptree" "quartet_count_from_gt_consistent_with_sptree";done
+ 1829  bash /home/farah/Project/Score_avg.sh
+ 1830  cat * >>QS_
+ 1831  grep "Final quartet score is:" QS_>>temp;cut -d ' ' -f5 temp>>QS
+ 1832  perl /home/farah/Downloads/calculate_average_new.pl QS
+ 1833  bash /home/farah/Project/Score_avg.sh
+ 1834  tail -1 Res1_deepcoal|awk '{print $NF}'>>EL
+ 1835  pwd
+ 1836  bash /home/farah/Project/extract_EL.sh
+ 1837  pwd
+ 1838  rm EL*
+ 1839  bash /home/farah/Project/extract_EL.sh
+ 1840  pwd
+ 1841  clear
+ 1842  bash /home/farah/Project/extract_EL.sh
+ 1843  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))_* -o Res$((i));done
+ 1844  clear
+ 1845  for i in {1..20};do java -jar /home/farah/PhyloNet/phylonet_v2_4/phylonet_v2_4.jar infer_st -m mdc -x -i Rep$((i))_* -o Res$((i));done
+ 1846  mv Res* Phylonet/infer_st/
+ 1847  bash /home/farah/Project/extract_EL.sh
+ 1848  ls
+ 1849  cd estimated_15genes_strongILS/
+ 1850  ls
+ 1851  Astral/
+ 1852  ls
+ 1853  cd Astral/
+ 1854  ls
+ 1855  cd ..
+ 1856  clear
+ 1857  pwd
+ 1858  ls
+ 1859  bash /home/farah/Project/Score_avg_sptree_with_max_qs.sh
+ 1860  rm -r QS
+ 1861  rm --help
+ 1862  rm -R QS
+ 1863  find . -name 'QS' -delete
+ 1864  find . -name 'QS_' -delete
+ 1865  find . -name 'temp' -delete
+ 1866  find . -name 'EL*' -delete
+ 1867  find . -name 'EL' -delete
+ 1868  bash /home/farah/Project/Score_avg.sh
+ 1869  pwd
+ 1870  ls
+ 1871  rm -r EL*
+ 1872  rm --help
+ 1873  rm -r EL_*
+ 1874  ls
+ 1875  /home/farah/Project/avg_EL_maxQS_Astral.sh
+ 1876  clear
+ 1877  for d in */Astral/sptree_with_max_quartet_consistency/ ; do cat Res*; done
+ 1878  for d in */Astral/sptree_with_max_quartet_consistency/ ; do cd $d;cat Res*; done
+ 1879  clear
+ 1880  bash /home/farah/Project/avg_EL_maxQS_Astral.sh
+ 1881  for i in */; do cd $i; rm -r EL*;done
+ 1882  find . -type f -name '*.o' -delete
+ 1883  find . -type f -name 'EL*' -delete
+ 1884  find . -type f -name '*stripped' -delete
+ 1885  bash /home/farah/Project/avg_EL_maxQS_Astral.sh
+ 1886  bash /home/farah/Project/extract_EL.sh
+ 1887  bash /home/farah/Project/Score_avg_sptree_with_max_qs.sh 
+ 1888  perl /home/farah/Project/strip_edge_support.pl -i Res1 -o Res1_stripped
+ 1889  bash /home/farah/Project/avg_QS_infer_st_Phylonet.sh 
+ 1890  find . -type f -name 'log*' -delete
+ 1891  clear
+ 1892  bash /home/farah/Project/avg_QS_infer_st_Phylonet.sh 
+ 1893  find . -type f -name 'log*' -delete
+ 1894  find . -type f -name 'QS*' -delete
+ 1895  find . -type f -name 'temp*' -delete
+ 1896  bash /home/farah/Project/avg_QS_infer_st_Phylonet.sh 
+ 1897  bash /home/farah/Project/avg_EL_infer_st_deepcoal_Phylonet.sh 
+ 1898  bash /home/farah/Project/avg_EL_maxQS_Astral.sh 
+ 1899  rm EL*
+ 1900  rm *stripped
+ 1901  bash /home/farah/Project/avg_EL_maxQS_Astral.sh 
+ 1902  rm EL*
+ 1903  rm *stripped
+ 1904  rm EL*
+ 1905  rm *stripped
+ 1906  rm EL*
+ 1907  bash /home/farah/Project/avg_EL_maxQS_Astral.sh 
+ 1908  bash /home/farah/Project/avg_QS_infer_st_Phylonet.sh 
+ 1909  cat */Phylonet/infer_st/QS
+ 1910  bash /home/farah/Project/avg_QS_sptree_with_max_qs.sh 
+ 1911  cat */Astral/sptree_with_max_quartet_consistency/QS
+ 1912  rm temp*
+ 1913  rm QS*
+ 1914  rm temp*
+ 1915  rm log*
+ 1916  rm temp*
+ 1917  rm QS*
+ 1918  rm temp*
+ 1919  rm log*
+ 1920  rm temp*
+ 1921  rm QS*
+ 1922  rm temp*
+ 1923  rm log*
+ 1924  rm temp*
+ 1925  rm QS*
+ 1926  rm temp*
+ 1927  rm log*
+ 1928  rm temp*
+ 1929  rm QS*
+ 1930  rm temp*
+ 1931  rm log*
+ 1932  rm temp*
+ 1933  rm QS*
+ 1934  rm temp*
+ 1935  rm log*
+ 1936  rm temp*
+ 1937  rm QS*
+ 1938  rm temp*
+ 1939  rm log*
+ 1940  rm temp*
+ 1941  rm QS*
+ 1942  rm temp*
+ 1943  rm QS*
+ 1944  rm log*
+ 1945  pwd
+ 1946  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q */Phylonet/infer_st/Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_strongILS/estimated_5genes_strongILS/Rep$((i))_5genes -o temp$((i)) 2> log$((i));done
+ 1947  rm log*
+ 1948  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_strongILS/estimated_5genes_strongILS/Rep$((i))_5genes -o temp$((i)) 2> log$((i));done
+ 1949  bash /home/farah/Project/avg_QS_infer_st_Phylonet.sh 
+ 1950  rm QS*
+ 1951  rm temp*
+ 1952  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_strongILS/estimated_15genes_strongILS/Rep$((i))_15genes -o temp$((i)) 2> log$((i));done
+ 1953  rm temp*
+ 1954  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_strongILS/estimated_25genes_strongILS/Rep$((i))_25genes -o temp$((i)) 2> log$((i));done
+ 1955  rm temp*
+ 1956  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_strongILS/estimated_50genes_strongILS/Rep$((i))_50genes -o temp$((i)) 2> log$((i));done
+ 1957  rm temp*
+ 1958  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_weakILS/estimated_5genes_weakILS/Rep$((i))_5genes -o temp$((i)) 2> log$((i));done
+ 1959  rm temp*
+ 1960  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_weakILS/estimated_15genes_weakILS/Rep$((i))_15genes -o temp$((i)) 2> log$((i));done
+ 1961  rm temp*
+ 1962  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_weakILS/estimated_25genes_weakILS/Rep$((i))_25genes -o temp$((i)) 2> log$((i));done
+ 1963  rm temp*
+ 1964  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/estimated_genetrees_weakILS/estimated_50genes_weakILS/Rep$((i))_50genes -o temp$((i)) 2> log$((i));done
+ 1965  rm temp*
+ 1966  pwd
+ 1967  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/simTree_11taxa_100genes_noHGT_strongILS/simulated_5genes_strongILS/Rep$((i))_5genes -o temp$((i)) 2> log$((i));done
+ 1968  rm temp*
+ 1969  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/simTree_11taxa_100genes_noHGT_strongILS/simulated_15genes_strongILS/Rep$((i))_15genes -o temp$((i)) 2> log$((i));done
+ 1970  rm temp*
+ 1971  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/simTree_11taxa_100genes_noHGT_strongILS/simulated_25genes_strongILS/Rep$((i))_25genes -o temp$((i)) 2> log$((i));done
+ 1972  rm temp*
+ 1973  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/simTree_11taxa_100genes_noHGT_strongILS/simulated_50genes_strongILS/Rep$((i))_50genes -o temp$((i)) 2> log$((i));done
+ 1974  rm temp*
+ 1975  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/simTree_11taxa_100genes_noHGT_weakILS/simulated_5genes_weakILS/Rep$((i))_5genes -o temp$((i)) 2> log$((i));done
+ 1976  rm temp*
+ 1977  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/simTree_11taxa_100genes_noHGT_weakILS/simulated_15genes_weakILS/Rep$((i))_15genes -o temp$((i)) 2> log$((i));done
+ 1978  rm temp*
+ 1979  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/simTree_11taxa_100genes_noHGT_weakILS/simulated_25genes_weakILS/Rep$((i))_25genes -o temp$((i)) 2> log$((i));done
+ 1980  rm temp*
+ 1981  for i in {1..20};do java -jar /home/farah/Downloads/ASTRAL-master/Astral.5.5.12/Astral/astral.5.5.12.jar -q Res$((i))_stripped -i /home/farah/Project/11-taxon_Bioinformatics/simTree_11taxa_100genes_noHGT_weakILS/simulated_50genes_weakILS/Rep$((i))_50genes -o temp$((i)) 2> log$((i));done
+ 1982  rm temp*
+ 1983  pwd
+ 1984  bash /home/farah/Project/avg_QS_infer_st_Phylonet.sh 
+ 1985  cat */Phylonet/infer_st/QS
+ 1986  grep 'average value: *' */Phylonet/infer_st/QS
+ 1987  cat */Astral/sptree_with_max_quartet_consistency/QS
+ 1988  grep 'average value: *' */Astral/sptree_with_max_quartet_consistency/QS
+ 1989  ls
+ 1990  cd estimated_100genes_weakILS/
+ 1991  ls
+ 1992  cd Astral\ Results/
+ 1993  ls
+ 1994  cd sptree_with_max_quartet_consistency/
+ 1995  ls
+ 1996  cd log/
+ 1997  grep 'average value: *' */Astral/sptree_with_max_quartet_consistency/QS
+ 1998  grep 'average value: *' */Astral/quartet_count_from_gt_consistent_with_sptree/QS
+ 1999  grep 'average value: *' */Phylonet/deepcoal_count/EL
+ 2000  history>history
